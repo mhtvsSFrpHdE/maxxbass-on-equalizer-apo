@@ -1,11 +1,9 @@
 # Why
-
 Although you can use Equalizer APO to run some VST plugins like LoudMax, BL Infra,  
 due to the delicated programming style of waves,  
 they will hang the Equalizer APO audiodg service when you try to load them.
 
 # How to use
-
 This script support oldest x64 build of Waves version `9.6`.  
 If you need other version, you need to manually open script in editor and change variables.
 
@@ -23,9 +21,13 @@ If you need other version, you need to manually open script in editor and change
 - Script will restart audiodg in the end, waves plugin should work now.
 
 # Warning
+- Waves will save plugin search location to `AppData\Roaming\Waves Audio\Preferences\V9PluginFolder_ScanView.txt`, delete this file if you moved `Plug-Ins V9` folder.
 - Don't use preset feature either for PathWork or Waves, they can cause hang for unknown reason.
 - Equalizer APO will save your configuration in `config.txt`, you can have multiple line of PathWork and use them as profile alternative
 - If you use preset and cause plugins bugged, remove lines in Equalize APO `config.txt`, reboot, `start_install.bat`, add Pathwork and continue from there.
 
 # Uninstall
 - Run `start_uninstall.bat` to delete created waves folder in local service folder.
+
+# Waves 9.6?
+MaxxBass didn't change since 1998. Unless you do love to run electron (EdgeWebView2) frontend for nothing.
