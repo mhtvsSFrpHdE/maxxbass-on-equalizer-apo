@@ -30,4 +30,5 @@ If you need other version, you need to manually open script in editor and change
 - Run `start_uninstall.bat` to delete created waves folder in local service folder.
 
 # Waves 9.6?
-MaxxBass didn't change since 1998. Unless you do love to run electron (EdgeWebView2) frontend for nothing.
+MaxxBass didn't change since 1998.  
+Unless you do love to run Waves 2024 electron (EdgeWebView2) frontend for nothing.
