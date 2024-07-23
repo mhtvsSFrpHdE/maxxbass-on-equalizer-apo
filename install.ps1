@@ -28,3 +28,5 @@ if ( (Test-Path $wavesAudioPath) -eq $false) {
 }
 
 "folders:`n  - $($askOpenPluginPath)" | Out-File "$($wavesConfigFileName)" -Encoding utf8 -NoNewline
+
+Get-Process -Name audiodg | Stop-Process -Force
