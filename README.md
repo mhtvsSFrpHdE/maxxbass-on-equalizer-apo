@@ -1,18 +1,26 @@
-# Why
+# maxxbass-on-equalizer-apo
+## What is this
 Although you can use Equalizer APO to run some VST plugins like LoudMax, BL Infra,  
-due to the delicated programming style of waves,  
+due to the unique programming style of waves,  
 they will hang the Equalizer APO audiodg service when you try to load them.
 
-# How to use
-This script support oldest x64 build of Waves version `9.6`.  
-If you need other version, you need to manually open script in editor and change variables.
+## How to use
+### Support version
+This script only support first x64 build of Waves version `9.6` by default.  
+If you need other version, you need to manually open script in code editor and change variables.
 
-- Get https://github.com/mspaintmsi/superUser x64 exe and place into script folder.
-- Get https://learn.microsoft.com/en-us/sysinternals/downloads/psexec same as above, if you want to use test related script.
-- Install `Blue Cat's PatchWork 2.68` x64 and VST version to load VST3 on Equalizer APO version `1.3`.
+Waves 9.6 doesn't provide VST2 interface,  
+you need `Blue Cat's PatchWork 2.68` to wrap VST3 on `Equalizer APO 1.3`.
+
+### Dependencies
+- Get superUser x64 exe and place into script folder aside `install.ps1`.  
+  https://github.com/mspaintmsi/superUser/releases/tag/v5.6.1
+
+### Steps
+- Install `Blue Cat's PatchWork 2.68` x64 VST version to load VST3 on Equalizer APO.
 - Install Waves 9.6, or copy paste Waves `C:\ProgramData\Waves Audio`.
 - Install or unzip your `Plug-Ins V9`, `WaveShells V9`.
-- Open Equalizer APO, load PathWork plugin, and load WaveShells 9.6 inside PathWork.
+- Open Equalizer APO, load PatchWork plugin, and load WaveShells 9.6 inside PatchWork.
 - Load WaveShells 9.6, not 9.7.
 - Choose `Plug-Ins V9` when waves shell ask for it.
 - Do rest VST configuration.
@@ -20,15 +28,69 @@ If you need other version, you need to manually open script in editor and change
 - Choose `Plug-Ins V9` and OK.
 - Script will restart audiodg in the end, waves plugin should work now.
 
-# Warning
-- Waves will save plugin search location to `AppData\Roaming\Waves Audio\Preferences\V9PluginFolder_ScanView.txt`, delete this file if you moved `Plug-Ins V9` folder.
-- Don't use preset feature either for PathWork or Waves, they can cause hang for unknown reason.
-- Equalizer APO will save your configuration in `config.txt`, you can have multiple line of PathWork and use them as profile alternative
-- If you use preset and cause plugins bugged, remove lines in Equalize APO `config.txt`, reboot, `start_install.bat`, add Pathwork and continue from there.
 
-# Uninstall
-- Run `start_uninstall.bat` to delete created waves folder in local service folder.
 
-# Waves 9.6?
+## Troubleshooting (FAQ)
+### Preset warning
+Don't use preset feature for either PatchWork or Waves, they can cause bug for unknown reason  
+like plugin loaded without error or hang but has no effect.  
+Equalizer APO save your VST configuration in `config.txt` `ChunkData` section,  
+it look like `VSTPlugin: Library "BC PatchWork VST.dll" ChunkData "PD94bWwgyou...`.  
+You can have multiple line of PatchWork and use them as alternative of preset.  
+If you use preset and cause plugins bugged, remove lines in Equalize APO `config.txt`,  
+reboot, `start_install.bat`, add blank PatchWork (do not paste with ChunkData), redo VST configuration.
+
+### PatchWork crashed even if not load any VST3
+You may use a mismatch PatchWork version,  
+suggest `PatchWork 2.68` and for `Equalizer APO 1.3`
+
+### When first time load wave shell in PatchWork, it ask Plug-Ins V9 folder again and again
+- Remove PatchWork from Equalizer APO editor.
+- End `audiodg.exe` process, it will restart anyway, just ensure wave shell is not running.
+- Go to `%AppData%`, delete `Waves Audio` folder or if you want a precise, carefully operation,  
+  delete `V9PluginFolder_ScanView.txt`.
+- Add PatchWork and add Wave shell to check if this time you get pass.
+- If still, open `%AppData%\Waves Audio\Preferences\V9PluginFolder_ScanView.txt`, edit path manually.
+- If still, check if that folder contains valid waves plugins.
+  You may also need all the `WavesLib_9.6...` dll out there.
+
+### I didn't see MaxxBass or my plugin in Wave shell
+Check you're loading `WaveShell-VST3 9.6_x64.vst3`,  
+instead of version `9.7`.
+
+### Uninstall
+Run `start_uninstall.bat` to delete created waves folder in local service folder.
+
+### I moved `Plug-Ins V9` folder
+Waves will save plugin search location to  
+`%AppData%\Waves Audio\Preferences\V9PluginFolder_ScanView.txt`,  
+delete this file if you moved `Plug-Ins V9` folder to trigger folder open dialog in Equalizer APO.  
+After VST configuration, run `start_install.bat` again.
+
+### Debug shell
+- Get psexec, if you want to use test script.  
+  https://learn.microsoft.com/en-us/sysinternals/downloads/psexec
+- Open `start_test.bat`, you have a cmd window with `LOCAL SERVICE` permission,  
+  run `test_notepad.bat` to open installed config file with `notepad.exe` to view content.
+
+### Waves 9.6?
 MaxxBass didn't change since 1998.  
-Unless you do love to run Waves 2024 electron (EdgeWebView2) frontend for nothing.
+Unless you do love to have Waves 2024 electron (EdgeWebView2) frontend for nothing.
+
+## Behind
+Equalizer APO audio service process run as `LOCAL SERVICE`,  
+but the `config.exe` editor itself run as normal user while doing VST configuration.  
+During the VST configuration, VST plugins also run as normal user.  
+However, `LOCAL SERVICE` doesn't have permissions to access normal user files  
+even a service sounds like have higher permission.  
+In this case, only use `ChunkData` to communicate with audio service,  
+don't let them to access file if unnecessary.
+
+Waves plugins is exception, Wave shell use dialog to ask `Plug-Ins V9` location  
+if it didn't found saved path in `%AppData%` which redirected to  
+`C:\Windows\ServiceProfiles\LocalService\AppData\Roaming\Waves Audio\Preferences\V9PluginFolder_ScanView.txt`  
+for `LOCAL SERVICE` account instead of normal user's `%AppData%`.  
+The dialog will block execution of the process so your audio service hangs.
+
+This handy script help you to choose your `Plug-Ins V9`  
+and generate a config file under `LocalService\AppData` to prevent the dialog.
