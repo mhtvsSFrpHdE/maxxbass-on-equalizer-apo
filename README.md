@@ -25,6 +25,7 @@ If you need other version, you need to manually open script in editor and change
 # Warning
 - Don't use preset feature either for PathWork or Waves, they can cause hang for unknown reason.
 - Equalizer APO will save your configuration in `config.txt`, you can have multiple line of PathWork and use them as profile alternative
+- If you use preset and cause plugins bugged, remove lines in Equalize APO `config.txt`, reboot, `start_install.bat`, add Pathwork and continue from there.
 
 # Uninstall
 - Run `start_uninstall.bat` to delete created waves folder in local service folder.
