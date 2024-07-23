@@ -1,2 +1,2 @@
-cd /d @~dp0
+cd /d %~dp0
 superuser64.exe evaluate_test.bat
