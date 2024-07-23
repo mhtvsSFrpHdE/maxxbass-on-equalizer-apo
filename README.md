@@ -12,7 +12,7 @@ If you need other version, you need to manually open script in editor and change
 - Get https://github.com/mspaintmsi/superUser x64 exe and place into script folder.
 - Get https://learn.microsoft.com/en-us/sysinternals/downloads/psexec same as above, if you want to use test related script.
 - Install `Blue Cat's PatchWork 2.68` x64 and VST version to load VST3 on Equalizer APO version `1.3`.
-- Install Waves 9.6, or copy paste Waves `C:\ProgramData`.
+- Install Waves 9.6, or copy paste Waves `C:\ProgramData\Waves Audio`.
 - Install or unzip your `Plug-Ins V9`, `WaveShells V9`.
 - Open Equalizer APO, load PathWork plugin, and load WaveShells 9.6 inside PathWork.
 - Load WaveShells 9.6, not 9.7.
