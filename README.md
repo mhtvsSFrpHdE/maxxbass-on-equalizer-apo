@@ -6,6 +6,8 @@ they will hang the Equalizer APO audiodg service when you try to load them.
 
 ## How to use
 ### Support version
+Tested only on `Windows 11 23H2 22631.3880 Windows Feature Experience Pack 1000.22700.1020.0`.
+
 This script only support first x64 build of Waves version `9.6` by default.  
 If you need other version, you need to manually open script in code editor and change variables.
 
