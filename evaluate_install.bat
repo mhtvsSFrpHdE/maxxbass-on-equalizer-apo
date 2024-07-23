@@ -1,2 +1,2 @@
 cd /d %~dp0
-powershell.exe -File install.ps1
+powershell.exe -ExecutionPolicy Unrestricted -File install.ps1

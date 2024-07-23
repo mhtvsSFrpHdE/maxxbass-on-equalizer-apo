@@ -1,2 +1,2 @@
 cd /d %~dp0
-powershell.exe -File uninstall.ps1
+powershell.exe -ExecutionPolicy Unrestricted -File uninstall.ps1
