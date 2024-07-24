@@ -61,7 +61,7 @@ LOL, install latest `vc_redist` 2012 x86 or x64 from Microsoft.
   delete `V9PluginFolder_ScanView.txt`.
 - Add PatchWork and add Wave shell to check if this time you get pass.
 - If still, open `%AppData%\Waves Audio\Preferences\V9PluginFolder_ScanView.txt`, edit path manually.
-- If still, check if that folder contains valid waves plugins.
+- If still, check if that folder contains valid waves plugins.  
   You may also need all the `WavesLib_9.6...` dll out there.
 
 ### I didn't see MaxxBass or my plugin in Wave shell
