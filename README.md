@@ -34,13 +34,16 @@ you need `Blue Cat's PatchWork 2.68` to wrap VST3 on `Equalizer APO 1.3`.
 
 ## Troubleshooting (FAQ)
 ### Preset warning
-Don't use preset feature for either PatchWork or Waves, they can cause bug for unknown reason  
+Don't use save preset or use saved preset (load built-in preset and edit manually are fine)  
+feature for either PatchWork or Waves, they can cause bug for unknown reason  
 like plugin loaded without error or hang but has no effect.  
 Equalizer APO save your VST configuration in `config.txt` `ChunkData` section,  
 it look like `VSTPlugin: Library "BC PatchWork VST.dll" ChunkData "PD94bWwgyou...`.  
 You can have multiple line of PatchWork and use them as alternative of preset.  
 If you use preset and cause plugins bugged, remove lines in Equalize APO `config.txt`,  
 reboot, `start_install.bat`, add blank PatchWork (do not paste with ChunkData), redo VST configuration.
+
+Check "Behind" section for more information and possible solution.
 
 ### PatchWork crashed even if not load any VST3
 You may use a mismatch PatchWork version,  
