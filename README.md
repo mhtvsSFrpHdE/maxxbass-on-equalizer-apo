@@ -21,8 +21,8 @@ you need `Blue Cat's PatchWork 2.68` to wrap VST3 on `Equalizer APO 1.3`.
 ### Steps
 - Install `Blue Cat's PatchWork 2.68` x64 VST version to load VST3 on Equalizer APO.
 - Install Waves 9.6, or copy paste Waves `C:\ProgramData\Waves Audio`.
-- Install or unzip your `Plug-Ins V9`, `WaveShells V9` to a location can be access by `LOCAL SERVICE`.
-  I find that create a new folder `C:\Program Files\EqualizerAPO\config\VST`
+- Install or unzip your `Plug-Ins V9`, `WaveShells V9` to a location can be access by `LOCAL SERVICE`.  
+  I find that create a new folder `C:\Program Files\EqualizerAPO\config\VST`  
   and put plugins in to VST folder did the trick.
 - Open Equalizer APO, load PatchWork plugin, and load WaveShells 9.6 inside PatchWork.
 - Load WaveShells 9.6, not 9.7.
