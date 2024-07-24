@@ -21,7 +21,9 @@ you need `Blue Cat's PatchWork 2.68` to wrap VST3 on `Equalizer APO 1.3`.
 ### Steps
 - Install `Blue Cat's PatchWork 2.68` x64 VST version to load VST3 on Equalizer APO.
 - Install Waves 9.6, or copy paste Waves `C:\ProgramData\Waves Audio`.
-- Install or unzip your `Plug-Ins V9`, `WaveShells V9`.
+- Install or unzip your `Plug-Ins V9`, `WaveShells V9` to a location can be access by `LOCAL SERVICE`.
+  I find that create a new folder `C:\Program Files\EqualizerAPO\config\VST`
+  and put plugins in to VST folder did the trick.
 - Open Equalizer APO, load PatchWork plugin, and load WaveShells 9.6 inside PatchWork.
 - Load WaveShells 9.6, not 9.7.
 - Choose `Plug-Ins V9` when waves shell ask for it.
@@ -34,16 +36,16 @@ you need `Blue Cat's PatchWork 2.68` to wrap VST3 on `Equalizer APO 1.3`.
 
 ## Troubleshooting (FAQ)
 ### Preset warning
-Don't use save preset or use saved preset (load built-in preset and edit manually may or may not fine)  
-feature for either PatchWork or Waves, they can cause bug for unknown reason  
-like plugin loaded without error or hang but has no effect.  
-Equalizer APO save your VST configuration in `config.txt` `ChunkData` section,  
+Save or use preset in a folder that can't be read by `LOCAL SERVICE` for either PatchWork or Waves may cause problems.  
+You can do this in Equalizer APO editor, because...  
+Check "**Behind**" section in README for more information and possible solution.
+
+Put preset under `C:\Program Files\EqualizerAPO\config\VST` should be fine,  
+or Equalizer APO save your VST configuration in `config.txt` `ChunkData` section,  
 it look like `VSTPlugin: Library "BC PatchWork VST.dll" ChunkData "PD94bWwgyou...`.  
 You can have multiple line of PatchWork and use them as alternative of preset.  
 If you use preset and cause plugins bugged, remove lines in Equalize APO `config.txt`,  
 reboot, `start_install.bat`, add blank PatchWork (do not paste with ChunkData), redo VST configuration.
-
-Check "Behind" section for more information and possible solution.
 
 ### PatchWork crashed even if not load any VST3
 You may use a mismatch PatchWork version,  
