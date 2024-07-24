@@ -63,6 +63,9 @@ LOL, install latest `vc_redist` 2012 x86 or x64 from Microsoft.
 Check you're loading `WaveShell-VST3 9.6_x64.vst3`,  
 instead of version `9.7`.
 
+### Switch between `Audio`, `MaxxBass`, `Original Bass` not work
+Open PatchWork panel, Check `Apply automatically`.
+
 ### Uninstall
 Run `start_uninstall.bat` to delete created waves folder in local service folder.
 
