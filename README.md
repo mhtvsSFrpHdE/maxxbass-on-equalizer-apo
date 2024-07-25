@@ -52,7 +52,7 @@ reboot, `start_install.bat`, add blank PatchWork (do not paste with ChunkData), 
 You may use a mismatch PatchWork version,  
 suggest `PatchWork 2.68` and for `Equalizer APO 1.3`
 
-### Wave shell is not a valid VST3...
+### Wave shell 9.6 is not a valid VST3...
 LOL, install latest `vc_redist` 2012 x86 or x64 from Microsoft.
 
 ### When first time load wave shell in PatchWork, it ask Plug-Ins V9 folder again and again
