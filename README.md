@@ -38,7 +38,7 @@ you need `Blue Cat's PatchWork 2.68` to wrap VST3 on `Equalizer APO 1.3`.
 ### Preset warning
 Save or use preset in a folder that can't be read by `LOCAL SERVICE`  
 for either PatchWork or Waves may cause problems.  
-You can do this in Equalizer APO editor, because...  
+Although you can do this in Equalizer APO editor without crash something, because...  
 Check "**Behind**" section in README for more information and possible solution.
 
 Put preset under `C:\Program Files\EqualizerAPO\config\VST` should be fine,  
