@@ -16,7 +16,7 @@ you need `Blue Cat's PatchWork 2.68` to wrap VST3 on `Equalizer APO 1.3`.
 
 ### Dependencies
 - Get superUser x64 exe and place into script folder aside `install.ps1`.  
-  https://github.com/mspaintmsi/superUser/releases/tag/v5.6.1
+  https://github.com/mspaintmsi/superUser/releases
 
 ### Steps
 - Install `Blue Cat's PatchWork 2.68` x64 VST version to load VST3 on Equalizer APO.
